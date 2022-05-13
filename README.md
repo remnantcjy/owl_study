@@ -55,4 +55,49 @@
   * 데이터 타입 : number, string, boolean
   * string의 property : length, method : toUpperCase(), indexOf('hi'), trim()
   * 변수 사용 : 가급적 var 쓰기 !
+  * 리팩토링 : 동작하는 것은 똑같지만 코드를 효율적으로 하는 것 (수단 중 함수가 포함) 
+  * 함수 - 수납상자
+    function 함수 이름 () {
+     code ...
+    }
+   입력 : 파라미터, 인자, 매개변수
+   출력 : return
+  * 객체 - 연관된 함수 & 연관된 변수를 같은 이름으로 그룹핑, 정리정돈하는 도구 (함수 기반 위에 객체가 존재)
+   객체에 속한 함수 = 메소드, 변수 = 프로퍼티
+   객체 (중괄호 사용, 순서 X, '.' = object access operator, ',' = 프로퍼티와 프로퍼티를 구분할 때 사용)
+   var coworkers = {
+     "programmer" : "egoing",
+     "designer" : "leezche"
+   };
+   document.write("programmer" + ":" + coworkers.programmer + "<br>");
+   document.write("programmer" + ":" + coworkers.programmer + "<br>");
+   coworkers.bookkeeper = "duru";
+   document.write("bookkeeper" + ":" + coworkers.bookkeeper + "<br>");
+   
+   //만약 변수명에 띄어쓰기가 있을 시 배열처럼 사용
+   coworker["data scientist"] = "taeho";
+   document.write("data scientist" + ":" + coworkers.["data scientist"] + "<br>");
+   
+   //Iterate
+   for(var key in coworkers){
+     document.write(key + ":" + coworkers[key] + "<br>");
+   }
   ```
+ 
+ * 부가적인 것
+ ```
+  * Ctrl + / : 많은 라인 주석
+  * 검사 도구 -> 네트워크 -> 웹페이지 리로드 시 1.html, style.css, colors.js 파일에 접속된 것을 확인
+    서버에 접속을 3번 해야 한다. 파일을 다운받아야 하니까. 웹 서버 입장에선 나쁜 일. 접속은 적을수록 좋다.   
+    럼에도 불구하고 이렇게 하는 것이 훨씬 효율적이다. Why? 캐시 때문에. (저장한다는 뜻)
+    저, 한 번 웹브라우저에 다운된 파일은 웹브라우저가 보통 컴퓨터에 저장을 한다. 그리고 다음에 접속시 저장된 파일을 읽어서 네트워크를 통하지 않게 한다.
+    그럼 서버 입장에선 비용이 절감되고 사용자 입장에선 네트워크 트래픽 절감 및 빠르게 웹페이지를 화면에 표시할 수 있다.
+    결론 : 파일 쪼개기 (=효율적 & 돈 절약 & 시간 절약)
+  * 오늘 날 SW 기본 - 다른 사람이 만든 SW를 부품으로 해서 그 SW를 소비해서 내가 만든 SW의 생산자가 됨. (생산자이면서 소비자)
+    알아둘 키워드 :  library & framework
+    라이브러리 : 재사용하기 쉬운 부품 느낌, 내가 만드는 프로그램을 가져오는 부품, SW 만드는 내가 라이브러리 땡겨와서 쓰는 느낌
+    프레임워크 : 만들고자 하는 것 중에 공통적인 것과 달라지는 것 존재, 이때 공통된 것은 프레임워크가 만들어놓은 걸 사용하고 만들고자 하는 것만 수정하거나 만든다.
+                 우리가 만들고자 하는걸 처음~끝까지 만들지 않고, 프레임워크 안에 들어가 작업하는 느낌
+  * UI : User Interface
+  * API : Application Programming Interface
+```
