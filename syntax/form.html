@@ -1,0 +1,11 @@
+<form action="http://localhost:3000/process_create"
+method="post">  // 서버로부터 사용자가 데이터를 get 가져올 때는 get방식, method = "get" or 생략
+// 하지만, 서버에 데이터를 생성, 수정, 삭제 경우엔 반드시 method = "post" 방식
+  <p><input type="text" name="title"></p>
+  <p>
+    <textarea name="description"></textarea>
+  </p>
+  <p>
+    <input type="submit" value="Submit">
+  </p>
+</form>
