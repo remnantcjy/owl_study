@@ -1,18 +1,17 @@
 {
-  "name": "npm-init-test",
-  "version": "0.0.1",
-  "description": "npm init test for create package.json",
-  "main": "main.js",
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "description": "nodeserver test",
+  "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "npm"
-  ],
-  "author": "Choi jungyoon",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "querystring": "^0.2.1",
-    "sanitize-html": "^2.7.0"
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
   }
 }
