@@ -1,25 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Movie from './components/Movie';
+import MovieForm from './components/MovieForm';
+import Navbar from './components/Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
 function App() {
-  const movies = [
-    {title : 'Kossie coder1', year : 2001},
-    {title : 'Kossie coder2', year : 2002},
-    {title : 'Kossie coder3', year : 2003},
-    {title : 'Kossie coder4', year : 2004}
-  ];
-  const renderMovies =movies.map(movie => {
+  const [movies, setMovies] = useState([]);
+
+  const removeMovie = (id) => {
+    setMovies(movies.filter(movie => {
+      return movie.id !== id;
+    }))
+  };
+
+  const renderMovies = movies.length ? movies.map(movie => {
     return (
-      <div className='movie' key={movie.title}>
-        <div className='movie-title'>{movie.title}</div>
-        <div className='movie-year'>{movie.year}</div>
-      </div>
+      <Movie 
+          movie={movie} 
+          key={movie.id}
+          removeMovie={removeMovie}
+      />
     );
-  });
+  }) : '추가된 영화가 없습니다.' ;
+  const addMovie = (movie) => {
+    setMovies([
+      ...movies,
+      movie
+     ]);
+  };
+
   return (
-    <div className="App">
-      <h1>Movie list</h1>
-      {renderMovies}
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <Route path='/movies'>
+            <h1>Movie list</h1>
+            <MovieForm addMovie={addMovie} />
+            {renderMovies}
+          </Route>
+          <Route path='/' exact>
+            <h1>Home</h1>
+          </Route>
+          <Route path='/users'>
+            <h1>Users</h1>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
